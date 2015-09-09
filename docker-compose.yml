@@ -1,3 +1,10 @@
+nginx:
+  build: ./nginx
+  links:
+      - send-api:api.send
+  ports:
+      - "80:80"
+
 send-api:
   build: ../send-api/
   ports:
@@ -5,11 +12,3 @@ send-api:
   volumes:
    - ../send-api/lib:/lib
 
-web:
-  image: nginx
-  ports:
-    - 8082:80
-#  volumes_from:
-#    - content
-#content:
-#  build: content
