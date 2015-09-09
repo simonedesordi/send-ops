@@ -1,0 +1,15 @@
+send-api:
+  build: ../send-api/
+  ports:
+   - "9090:9090"
+  volumes:
+   - ../send-api/lib:/lib
+
+web:
+  image: nginx
+  ports:
+    - 8082:80
+#  volumes_from:
+#    - content
+#content:
+#  build: content
